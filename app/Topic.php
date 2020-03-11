@@ -19,8 +19,8 @@ class Topic extends Model
         return $this->hasMany('App\Question');
     }
 
-    public function subTopics()
+    public function chapters()
     {
-        return $this->belongsToMany(SubTopic::class);
+        return $this->hasMany(SubTopic::class);
     }
 }

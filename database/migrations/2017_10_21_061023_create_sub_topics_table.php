@@ -16,23 +16,15 @@ class CreateSubTopicsTable extends Migration
         Schema::create('sub_topics', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
-            $table->timestamps();
-        });
-
-        Schema::create('sub_topic_topic', function (Blueprint $table) {
-            $table->increments('id');
             $table->integer('topic_id')->unsigned();
             $table->foreign('topic_id')
                 ->references('id')
                 ->on('topics')
                 ->onDelete('cascade');
-            $table->integer('sub_topic_id')->unsigned();
-            $table->foreign('sub_topic_id')
-                ->references('id')
-                ->on('sub_topics')
-                ->onDelete('cascade');
             $table->timestamps();
         });
+
+       
     }
 
     /**

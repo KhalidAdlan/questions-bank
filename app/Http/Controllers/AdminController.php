@@ -4,16 +4,15 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use App\Topic;
 
 class AdminController extends Controller
 {
     public function index(Request $request)
     {
-        $users = User::where('role', '!=', 2);
-        if ($request->q != null) $users = $users->searchByName($request->q);
-        $users = $users->paginate(15);
+        $topics = Topic::all();
 
-        return view('admin.dashboard', compact('users'));
+        return view('admin.dashboard', compact('topics'));
     }
 
     public function getUsers(User $user)

@@ -17,15 +17,14 @@ class CreateQuestionsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->text('question');
-            $table->integer('topic_id')->unsigned();
-            $table->foreign('topic_id')
-                ->references('id')
-                ->on('topics')
-                ->onDelete('cascade');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users');
+            $table->text('correct_answer');
+            $table->text('option_a');
+            $table->text('option_b')->nullable();
+            $table->text('option_c')->nullable();
+
+            $table->integer('sub_topic_id')->unsigned();
+         
+          
 
         });
     }

@@ -8,9 +8,11 @@ class Question extends Model
 {
     protected $fillable = [
         'question',
-        'topic_id',
-        'user_id',
-        'verified' // default set to 0
+        'sub_topic_id',
+        'option_a',
+        'option_b',
+        'option_c',
+        'correct_answer'
     ];
 
     protected $hidden = [
